@@ -2,16 +2,17 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.vanniktech.maven.publish") version "0.29.0"
+    id("com.vanniktech.maven.publish") version "0.30.0"
 }
 
 android {
     namespace = "github.mahdiasd.filepicker"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 21
-        targetSdk = 35
+        targetSdk = 34
+        minSdk = 21
 
         consumerProguardFiles("consumer-rules.pro")
     }

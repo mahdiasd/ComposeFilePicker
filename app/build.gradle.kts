@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.vanniktech.maven.publish") version "0.29.0" apply false
+    id("com.vanniktech.maven.publish") version "0.30.0" apply false
 }
 
 android {
@@ -13,8 +13,8 @@ android {
         applicationId = "mahdiasd.bottomdialogfilepicker"
         minSdk = 21
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
