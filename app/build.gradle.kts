@@ -60,7 +60,8 @@ dependencies {
     implementation(libs.kotlinx.collections.immutable)
     implementation(libs.coil.compose)
     implementation(libs.coil.video)
-    implementation(project(":FilePicker"))
+    implementation(project(":ComposeFilePicker"))
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

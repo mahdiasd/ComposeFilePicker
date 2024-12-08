@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ComposeFilePicker"
 include(":app")
-include(":FilePicker")
+include(":ComposeFilePicker")

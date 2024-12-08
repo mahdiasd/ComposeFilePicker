@@ -25,6 +25,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import github.mahdiasd.filepicker.utils.OnPause
 import github.mahdiasd.filepicker.utils.OnResume
 import github.mahdiasd.filepicker.utils.PickerConfig
 import github.mahdiasd.filepicker.utils.PickerFile
@@ -49,6 +52,7 @@ fun PickerDialog(
 
     var dismissWhenOnResume by remember { mutableStateOf(false) }
     var isPermissionGrant by remember { mutableStateOf(false) }
+    val lifecycle = LocalLifecycleOwner.current.lifecycle
 
     var dialogAlpha by remember { mutableFloatStateOf(0f) }
 
@@ -83,6 +87,7 @@ fun PickerDialog(
         if (dismissWhenOnResume) onDismiss()
     }
 
+
     LaunchedEffect(types, showPickerDialog) {
         if (selectedType == null && !showPickerDialog) {
             selectedType = types.firstOrNull()
@@ -91,29 +96,12 @@ fun PickerDialog(
 
     LaunchedEffect(selectedType) {
         when (selectedType) {
-            PickerType.Audio -> {
-                dialogAlpha = 1f
-            }
-
-            PickerType.ImageAndVideo -> {
-                dialogAlpha = if (isPhotoPickerAvailable) 0f else 1f
-            }
-
-            PickerType.ImageOnly -> {
-                dialogAlpha = if (isPhotoPickerAvailable) 0f else 1f
-            }
-
-            PickerType.Storage -> {
-                dialogAlpha = 0f
-            }
-
-            PickerType.VideoOnly -> {
-                dialogAlpha = if (isPhotoPickerAvailable) 0f else 1f
-            }
-
-            null -> {
-                dialogAlpha = if (showPickerDialog && selectedType == null) 1f else 0f
-            }
+            PickerType.Audio -> dialogAlpha = 1f
+            PickerType.ImageAndVideo -> dialogAlpha = if (isPhotoPickerAvailable) 0f else 1f
+            PickerType.ImageOnly -> dialogAlpha = if (isPhotoPickerAvailable) 0f else 1f
+            PickerType.Storage -> dialogAlpha = 0f
+            PickerType.VideoOnly -> dialogAlpha = if (isPhotoPickerAvailable) 0f else 1f
+            null -> dialogAlpha = if (showPickerDialog && selectedType == null) 1f else 0f
         }
     }
 
@@ -152,8 +140,11 @@ fun PickerDialog(
 
                 PickerType.ImageAndVideo -> {
                     if (isPhotoPickerAvailable) {
-                        pickMultipleMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageAndVideo))
-                        dismissWhenOnResume = true
+                        if (lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
+                            Log.d("TAG", "PickerDialog: ImageAndVideo")
+                            pickMultipleMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageAndVideo))
+                            dismissWhenOnResume = true
+                        }
                     } else if (isPermissionGrant) {
                         MultiMediaContent(
                             pickerConfig = pickerConfig,
@@ -167,8 +158,10 @@ fun PickerDialog(
 
                 PickerType.ImageOnly -> {
                     if (isPhotoPickerAvailable) {
-                        pickMultipleMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
-                        dismissWhenOnResume = true
+                        if (lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
+                            pickMultipleMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+                            dismissWhenOnResume = true
+                        }
                     } else if (isPermissionGrant) {
                         MultiMediaContent(
                             pickerConfig = pickerConfig,
@@ -181,14 +174,18 @@ fun PickerDialog(
                 }
 
                 PickerType.Storage -> {
-                    pickFile.launch(arrayOf("*/*"))
-                    dismissWhenOnResume = true
+                    if (lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
+                        pickFile.launch(arrayOf("*/*"))
+                        dismissWhenOnResume = true
+                    }
                 }
 
                 PickerType.VideoOnly -> {
                     if (isPhotoPickerAvailable) {
-                        pickMultipleMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.VideoOnly))
-                        dismissWhenOnResume = true
+                        if (lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
+                            pickMultipleMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.VideoOnly))
+                            dismissWhenOnResume = true
+                        }
                     } else if (isPermissionGrant) {
                         MultiMediaContent(
                             pickerConfig = pickerConfig,
