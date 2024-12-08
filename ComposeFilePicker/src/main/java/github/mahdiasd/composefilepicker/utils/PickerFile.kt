@@ -1,4 +1,4 @@
-package github.mahdiasd.filepicker.utils
+package github.mahdiasd.composefilepicker.utils
 
 import androidx.compose.runtime.Stable
 import java.io.File

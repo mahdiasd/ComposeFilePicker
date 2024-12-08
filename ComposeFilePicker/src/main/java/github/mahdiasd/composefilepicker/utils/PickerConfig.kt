@@ -1,4 +1,4 @@
-package github.mahdiasd.filepicker.utils
+package github.mahdiasd.composefilepicker.utils
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -9,11 +9,11 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import github.mahdiasd.filepicker.R
-import github.mahdiasd.filepicker.theme.DialogContainerColor
-import github.mahdiasd.filepicker.theme.IconColor
-import github.mahdiasd.filepicker.theme.IconContainerColor
-import github.mahdiasd.filepicker.theme.TextColor
+import github.mahdiasd.composefilepicker.theme.DialogContainerColor
+import github.mahdiasd.composefilepicker.theme.IconColor
+import github.mahdiasd.composefilepicker.theme.IconContainerColor
+import github.mahdiasd.composefilepicker.theme.TextColor
+import github.mahdiasd.composefilepicker.R
 
 @Stable
 data class PickerConfig(

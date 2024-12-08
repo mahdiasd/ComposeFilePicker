@@ -1,4 +1,4 @@
-package github.mahdiasd.filepicker.theme
+package github.mahdiasd.composefilepicker.theme
 
 import androidx.compose.ui.graphics.Color
 

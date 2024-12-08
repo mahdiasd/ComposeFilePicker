@@ -1,3 +1,5 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -6,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "github.mahdiasd.filepicker"
+    namespace = "github.mahdiasd.composefilepicker"
     compileSdk = 34
 
     defaultConfig {
@@ -17,6 +19,7 @@ android {
     }
 
     buildTypes {
+
         release {
             isMinifyEnabled = true
             proguardFiles(
@@ -48,6 +51,7 @@ android {
             excludes += "META-INF/LICENSE-notice.md"
         }
     }
+
 }
 
 dependencies {
@@ -64,6 +68,40 @@ dependencies {
     implementation(libs.kotlinx.collections.immutable)
     implementation(libs.coil.compose)
     implementation(libs.coil.video)
-
 }
 
+
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    signAllPublications()
+
+    coordinates("io.github.mahdiasd", "ComposeFilePicker", "1.0.4")
+
+    pom {
+        name.set("Compose File Picker")
+        description.set("An Android file picker library built with Jetpack Compose.")
+        inceptionYear.set("2024")
+        url.set("https://github.com/mahdiasd/ComposeFilePicker")
+
+        licenses {
+            license {
+                name.set("The Apache Software License, Version 2.0")
+                url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                distribution.set("repo")
+            }
+        }
+        developers {
+            developer {
+                id.set("mahdiasd")
+                name.set("Mahdi Asadollahpur")
+                url.set("https://github.com/mahdiasd/")
+            }
+        }
+        scm {
+            url.set("https://github.com/mahdiasd/ComposeFilePicker")
+            connection.set("scm:git:https://github.com/mahdiasd/ComposeFilePicker.git")
+            developerConnection.set("scm:git:git@github.com:mahdiasd/ComposeFilePicker.git")
+        }
+    }
+}

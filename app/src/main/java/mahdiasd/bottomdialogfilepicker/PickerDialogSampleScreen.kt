@@ -22,10 +22,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import github.mahdiasd.filepicker.screens.PickerDialog
-import github.mahdiasd.filepicker.utils.PickerConfig
-import github.mahdiasd.filepicker.utils.PickerFile
-import github.mahdiasd.filepicker.utils.PickerType
+import github.mahdiasd.composefilepicker.screens.PickerDialog
+import github.mahdiasd.composefilepicker.utils.PickerConfig
+import github.mahdiasd.composefilepicker.utils.PickerFile
+import github.mahdiasd.composefilepicker.utils.PickerType
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toPersistentList
 

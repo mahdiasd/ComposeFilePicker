@@ -1,4 +1,4 @@
-package github.mahdiasd.filepicker.screens
+package github.mahdiasd.composefilepicker.screens
 
 import androidx.compose.foundation.clipScrollableContainer
 import androidx.compose.foundation.gestures.Orientation
@@ -27,10 +27,10 @@ import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
-import github.mahdiasd.filepicker.utils.PickerFile
-import github.mahdiasd.filepicker.utils.PickerType
-import github.mahdiasd.filepicker.utils.FileProvider
-import github.mahdiasd.filepicker.utils.PickerConfig
+import github.mahdiasd.composefilepicker.utils.PickerFile
+import github.mahdiasd.composefilepicker.utils.PickerType
+import github.mahdiasd.composefilepicker.utils.FileProvider
+import github.mahdiasd.composefilepicker.utils.PickerConfig
 
 @Composable
 internal fun MultiMediaContent(

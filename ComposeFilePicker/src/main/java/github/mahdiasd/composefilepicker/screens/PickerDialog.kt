@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
-package github.mahdiasd.filepicker.screens
+package github.mahdiasd.composefilepicker.screens
 
 import android.net.Uri
 import android.util.Log
@@ -27,12 +27,11 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
-import github.mahdiasd.filepicker.utils.OnPause
-import github.mahdiasd.filepicker.utils.OnResume
-import github.mahdiasd.filepicker.utils.PickerConfig
-import github.mahdiasd.filepicker.utils.PickerFile
-import github.mahdiasd.filepicker.utils.PickerType
-import github.mahdiasd.filepicker.utils.getPermissions
+import github.mahdiasd.composefilepicker.utils.OnResume
+import github.mahdiasd.composefilepicker.utils.PickerConfig
+import github.mahdiasd.composefilepicker.utils.PickerFile
+import github.mahdiasd.composefilepicker.utils.PickerType
+import github.mahdiasd.composefilepicker.utils.getPermissions
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import java.io.File

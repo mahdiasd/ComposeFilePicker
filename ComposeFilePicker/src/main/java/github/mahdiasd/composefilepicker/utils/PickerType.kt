@@ -1,8 +1,7 @@
-package github.mahdiasd.filepicker.utils
+package github.mahdiasd.composefilepicker.utils
 
 import android.Manifest
 import android.os.Build
-import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList

@@ -1,4 +1,4 @@
-package github.mahdiasd.filepicker.screens
+package github.mahdiasd.composefilepicker.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
@@ -36,9 +36,9 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import github.mahdiasd.filepicker.utils.FileProvider
-import github.mahdiasd.filepicker.utils.PickerConfig
-import github.mahdiasd.filepicker.utils.PickerFile
+import github.mahdiasd.composefilepicker.utils.FileProvider
+import github.mahdiasd.composefilepicker.utils.PickerConfig
+import github.mahdiasd.composefilepicker.utils.PickerFile
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList

@@ -1,4 +1,4 @@
-package github.mahdiasd.filepicker.screens
+package github.mahdiasd.composefilepicker.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -30,8 +30,8 @@ import coil3.compose.rememberAsyncImagePainter
 import coil3.request.CachePolicy
 import coil3.request.crossfade
 import coil3.video.VideoFrameDecoder
-import github.mahdiasd.filepicker.utils.PickerFile
-import github.mahdiasd.filepicker.utils.PickerConfig
+import github.mahdiasd.composefilepicker.utils.PickerFile
+import github.mahdiasd.composefilepicker.utils.PickerConfig
 import java.io.File
 
 

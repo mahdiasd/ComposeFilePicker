@@ -1,4 +1,4 @@
-package github.mahdiasd.filepicker.utils
+package github.mahdiasd.composefilepicker.utils
 
 import android.content.Context
 import android.database.Cursor

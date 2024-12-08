@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package github.mahdiasd.filepicker.screens
+package github.mahdiasd.composefilepicker.screens
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
@@ -17,7 +17,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
@@ -25,10 +24,10 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.ImmutableList
-import github.mahdiasd.filepicker.utils.PickerType
-import github.mahdiasd.filepicker.utils.PickerConfig
-import github.mahdiasd.filepicker.utils.getIcon
-import github.mahdiasd.filepicker.utils.getTitle
+import github.mahdiasd.composefilepicker.utils.PickerType
+import github.mahdiasd.composefilepicker.utils.PickerConfig
+import github.mahdiasd.composefilepicker.utils.getIcon
+import github.mahdiasd.composefilepicker.utils.getTitle
 
 @Composable
 fun PickerItemContent(

@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.vanniktech.maven.publish") version "0.30.0" apply false
+    id("com.vanniktech.maven.publish") version "0.30.0"
 }
 
 android {
@@ -21,7 +21,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
@@ -45,6 +45,8 @@ android {
 
 }
 
+
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -60,7 +62,8 @@ dependencies {
     implementation(libs.kotlinx.collections.immutable)
     implementation(libs.coil.compose)
     implementation(libs.coil.video)
-    implementation(project(":ComposeFilePicker"))
+//    implementation(project(":ComposeFilePicker"))
+    implementation ("io.github.mahdiasd:ComposeFilePicker:1.0.4")
 
 
     testImplementation(libs.junit)
