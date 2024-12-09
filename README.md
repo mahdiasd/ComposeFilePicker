@@ -7,6 +7,18 @@ Welcome to the **Jetpack Compose File Picker Library**! This library provides a 
 
 ---
 
+---
+
+## 📱 Screenshots
+
+| Image Picker Dialog                                                                                                                    | Audio Picker Screen                                                                                                                    |
+|----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110701_Media%20picker.jpg)   | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110709_ComposeFilePicker.jpg) |
+| ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110730_ComposeFilePicker.jpg) | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110743_ComposeFilePicker.jpg) |
+| ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110751_Media%20picker.jpg)   | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/images_below11.png)                              |
+
+---
+
 ## 🌟 Features
 
 - **Support for All Android Versions**: Compatible with Android 5.0 to Android 14.
@@ -241,17 +253,7 @@ val pickerConfig = PickerConfig(
 )
 ```
 
----
 
-## 📱 Screenshots
-
-| Image Picker Dialog                                                                                                                       | Audio Picker Screen                                                                                                                       |
-|-------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110701_Media%20picker.jpg/200)    | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110709_ComposeFilePicker.jpg/200) |
-| ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110730_ComposeFilePicker.jpg/200) | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110743_ComposeFilePicker.jpg/200) |
-| ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110751_Media%20picker.jpg/200)    | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/images_below11.png/200)                               |
-
----
 
 ## 🔄 Supported Picker Types
 
