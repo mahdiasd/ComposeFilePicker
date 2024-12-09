@@ -26,7 +26,7 @@ Add the dependency to your `build.gradle` file:
 
 ```groovy
 dependencies {
-  implementation("io.github.mahdiasd:ComposeFilePicker:1.0.4")
+  implementation("io.github.mahdiasd:ComposeFilePicker:1.0.6")
 }
 ```
 
