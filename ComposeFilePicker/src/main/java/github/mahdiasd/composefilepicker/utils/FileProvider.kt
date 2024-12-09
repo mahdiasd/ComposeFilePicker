@@ -9,7 +9,7 @@ import kotlinx.collections.immutable.toImmutableList
 
 object FileProvider {
 
-    fun getImage(context: Context, enableCamera: Boolean): ImmutableList<PickerFile> {
+    internal fun getImage(context: Context, enableCamera: Boolean): ImmutableList<PickerFile> {
         val list = mutableSetOf<PickerFile>()
         if (enableCamera) {
             list.add(PickerFile("show camera"))
@@ -35,7 +35,7 @@ object FileProvider {
         return list.toImmutableList()
     }
 
-    fun getAudio(context: Context): ImmutableList<PickerFile> {
+    internal fun getAudio(context: Context): ImmutableList<PickerFile> {
         val list = mutableSetOf<PickerFile>()
         val columns = arrayOf(
             MediaStore.Audio.AudioColumns._ID,
@@ -60,7 +60,7 @@ object FileProvider {
         return list.toImmutableList()
     }
 
-    fun getVideo(context: Context): ImmutableList<PickerFile> {
+   internal fun getVideo(context: Context): ImmutableList<PickerFile> {
         val list = mutableSetOf<PickerFile>()
         val columns = arrayOf(
             MediaStore.Video.VideoColumns.DATA,

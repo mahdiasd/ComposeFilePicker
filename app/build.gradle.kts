@@ -21,7 +21,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
@@ -62,8 +62,8 @@ dependencies {
     implementation(libs.kotlinx.collections.immutable)
     implementation(libs.coil.compose)
     implementation(libs.coil.video)
-//    implementation(project(":ComposeFilePicker"))
-    implementation ("io.github.mahdiasd:ComposeFilePicker:1.0.4")
+    implementation(project(":ComposeFilePicker"))
+//    implementation ("io.github.mahdiasd:ComposeFilePicker:1.0.5")
 
 
     testImplementation(libs.junit)

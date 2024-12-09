@@ -2,6 +2,8 @@
 
 package github.mahdiasd.composefilepicker.screens
 
+import android.content.Context
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -24,9 +26,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import github.mahdiasd.composefilepicker.utils.PickerResult
 import github.mahdiasd.composefilepicker.utils.OnResume
 import github.mahdiasd.composefilepicker.utils.PickerConfig
 import github.mahdiasd.composefilepicker.utils.PickerFile
@@ -34,7 +38,6 @@ import github.mahdiasd.composefilepicker.utils.PickerType
 import github.mahdiasd.composefilepicker.utils.getPermissions
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
-import java.io.File
 
 @Composable
 fun PickerDialog(
@@ -45,7 +48,7 @@ fun PickerDialog(
     horizontalArrangement: Arrangement.HorizontalOrVertical = Arrangement.SpaceAround,
     sheetState: SheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
     onDismiss: () -> Unit,
-    selected: (ImmutableList<PickerFile>) -> Unit
+    selected: (ImmutableList<PickerResult>) -> Unit
 ) {
     val context = LocalContext.current
 
@@ -57,14 +60,31 @@ fun PickerDialog(
 
     val isPhotoPickerAvailable by remember { mutableStateOf(isPhotoPickerAvailable(context)) }
 
-    val pickMultipleMedia = rememberLauncherForActivityResult(contract = ActivityResultContracts.PickMultipleVisualMedia(pickerConfig.maxSelection)) { uris ->
-        if (uris.isNotEmpty()) {
-            selected(uris.toPickerFiles())
+    val pickMultipleMedia = if (pickerConfig.maxSelection > 1) {
+        rememberLauncherForActivityResult(contract = ActivityResultContracts.PickMultipleVisualMedia(pickerConfig.maxSelection)) { uris ->
+            if (uris.isNotEmpty()) {
+                selected(uris.toPickerResults(context))
+            }
+        }
+    } else {
+        rememberLauncherForActivityResult(contract = ActivityResultContracts.PickVisualMedia()) { uri ->
+            if (uri != null) {
+                selected(listOf(uri).toPickerResults(context))
+            }
         }
     }
-    val pickFile = rememberLauncherForActivityResult(ActivityResultContracts.OpenMultipleDocuments()) { uris ->
-        if (uris.isNotEmpty()) {
-            selected(uris.toPickerFiles())
+
+    val pickFile = if (pickerConfig.maxSelection > 1) {
+        rememberLauncherForActivityResult(contract = ActivityResultContracts.OpenMultipleDocuments()) { uris ->
+            if (uris.isNotEmpty()) {
+                selected(uris.toPickerResults(context))
+            }
+        }
+    } else {
+        rememberLauncherForActivityResult(contract = ActivityResultContracts.OpenDocument()) { uri ->
+            if (uri != null) {
+                selected(listOf(uri).toPickerResults(context))
+            }
         }
     }
 
@@ -94,13 +114,13 @@ fun PickerDialog(
     }
 
     LaunchedEffect(selectedType) {
-        when (selectedType) {
-            PickerType.Audio -> dialogAlpha = 1f
-            PickerType.ImageAndVideo -> dialogAlpha = if (isPhotoPickerAvailable) 0f else 1f
-            PickerType.ImageOnly -> dialogAlpha = if (isPhotoPickerAvailable) 0f else 1f
-            PickerType.Storage -> dialogAlpha = 0f
-            PickerType.VideoOnly -> dialogAlpha = if (isPhotoPickerAvailable) 0f else 1f
-            null -> dialogAlpha = if (showPickerDialog && selectedType == null) 1f else 0f
+        dialogAlpha = when (selectedType) {
+            PickerType.Audio -> 1f
+            PickerType.ImageAndVideo -> if (isPhotoPickerAvailable) 0f else 1f
+            PickerType.ImageOnly -> if (isPhotoPickerAvailable) 0f else 1f
+            PickerType.Storage -> 0f
+            PickerType.VideoOnly -> if (isPhotoPickerAvailable) 0f else 1f
+            null -> if (showPickerDialog && selectedType == null) 1f else 0f
         }
     }
 
@@ -129,7 +149,7 @@ fun PickerDialog(
                         AudioListContent(
                             pickerConfig = pickerConfig,
                             selected = {
-                                selected(it)
+                                selected(it.toPickerResults())
                             }
                         )
                     else {
@@ -148,7 +168,7 @@ fun PickerDialog(
                         MultiMediaContent(
                             pickerConfig = pickerConfig,
                             type = selectedType!!,
-                            selected = { selected(it) }
+                            selected = { selected(it.toPickerResults()) }
                         )
                     } else {
                         permissionLauncher.launch(selectedType!!.getPermissions().toTypedArray())
@@ -165,7 +185,7 @@ fun PickerDialog(
                         MultiMediaContent(
                             pickerConfig = pickerConfig,
                             type = selectedType!!,
-                            selected = { selected(it) }
+                            selected = { selected(it.toPickerResults()) }
                         )
                     } else {
                         permissionLauncher.launch(selectedType!!.getPermissions().toTypedArray())
@@ -189,7 +209,7 @@ fun PickerDialog(
                         MultiMediaContent(
                             pickerConfig = pickerConfig,
                             type = selectedType!!,
-                            selected = { selected(it) }
+                            selected = { selected(it.toPickerResults()) }
                         )
                     } else {
                         permissionLauncher.launch(selectedType!!.getPermissions().toTypedArray())
@@ -202,11 +222,29 @@ fun PickerDialog(
     }
 }
 
+internal fun ImmutableList<PickerFile>.toPickerResults(): ImmutableList<PickerResult> {
+    return this.map {
+        val bitmap = try {
+            BitmapFactory.decodeFile(it.path).asImageBitmap()
+        } catch (e: Exception) {
+            null
+        }
+        PickerResult(Uri.fromFile(it.file), bitmap)
+    }.toImmutableList()
+}
 
-fun List<Uri>.toPickerFiles(): ImmutableList<PickerFile> {
-    return this.mapNotNull {
-        if (it.path.isNullOrEmpty()) null
-        else
-            PickerFile(it.path!!, file = File(it.path!!))
+internal fun List<Uri>.toPickerResults(context: Context): ImmutableList<PickerResult> {
+    return this.map { uri ->
+        val imageBitmap = try {
+            context.contentResolver.openInputStream(uri)?.use { inputStream ->
+                val bitmap = BitmapFactory.decodeStream(inputStream)
+                bitmap?.asImageBitmap()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null // Return null if decoding fails or an exception occurs
+        }
+        // Create the PickerResult with the imageBitmap (may be null)
+        PickerResult(uri = uri, imageBitmap = imageBitmap)
     }.toImmutableList()
 }

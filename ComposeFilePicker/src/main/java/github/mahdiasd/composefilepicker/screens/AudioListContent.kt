@@ -98,6 +98,7 @@ internal fun AudioListContent(
             }
 
             items(items = searchedAudios) { pickerFile: PickerFile ->
+                val isSelected = selectedFiles.find { it.path == pickerFile.path } != null
                 Row(
                     Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
@@ -110,8 +111,14 @@ internal fun AudioListContent(
                         unSelectedColor = pickerConfig.multiMediaScreenConfig.checkBoxUnSelectedColor,
                         iconSize = 32.dp,
                         onChecked = {
-                            if (selectedFiles.find { it.path == pickerFile.path } == null) selectedFiles.add(pickerFile)
-                            else selectedFiles.remove(pickerFile)
+                            if (!isSelected && selectedFiles.size < pickerConfig.maxSelection) {
+                                selectedFiles.add(pickerFile)
+                            } else if (!isSelected) {
+                                selectedFiles.removeFirstOrNull()
+                                selectedFiles.add(pickerFile)
+                            } else {
+                                selectedFiles.remove(pickerFile)
+                            }
                         }
                     )
 
@@ -123,7 +130,10 @@ internal fun AudioListContent(
                                 interactionSource = remember { MutableInteractionSource() },
                                 indication = null,
                                 onClick = {
-                                    if (selectedFiles.find { it.path == pickerFile.path } == null) {
+                                    if (!isSelected && selectedFiles.size < pickerConfig.maxSelection) {
+                                        selectedFiles.add(pickerFile)
+                                    } else if (!isSelected) {
+                                        selectedFiles.removeFirstOrNull()
                                         selectedFiles.add(pickerFile)
                                     } else {
                                         selectedFiles.remove(pickerFile)
@@ -134,7 +144,7 @@ internal fun AudioListContent(
                         style = pickerConfig.audioListScreenConfig.audioItemTextStyle,
                         color = if (selectedFiles.find { it.path == pickerFile.path } == null) {
                             pickerConfig.audioListScreenConfig.audioUnselectedItemColor
-                        }else
+                        } else
                             pickerConfig.audioListScreenConfig.audioSelectedItemColor
                     )
                 }

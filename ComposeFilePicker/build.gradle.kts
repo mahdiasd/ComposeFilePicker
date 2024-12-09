@@ -76,7 +76,7 @@ mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
 
-    coordinates("io.github.mahdiasd", "ComposeFilePicker", "1.0.4")
+    coordinates("io.github.mahdiasd", "ComposeFilePicker", "1.0.6")
 
     pom {
         name.set("Compose File Picker")

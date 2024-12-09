@@ -36,7 +36,7 @@ import java.io.File
 
 
 @Composable
-fun MediaItem(
+internal fun MediaItem(
     pickerFile: PickerFile,
     config: PickerConfig,
     isSelected : Boolean,

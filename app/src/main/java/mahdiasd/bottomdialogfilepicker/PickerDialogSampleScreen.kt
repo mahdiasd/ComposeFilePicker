@@ -24,7 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import github.mahdiasd.composefilepicker.screens.PickerDialog
 import github.mahdiasd.composefilepicker.utils.PickerConfig
-import github.mahdiasd.composefilepicker.utils.PickerFile
+import github.mahdiasd.composefilepicker.utils.PickerResult
 import github.mahdiasd.composefilepicker.utils.PickerType
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toPersistentList
@@ -36,12 +36,12 @@ fun PickerDialogSampleScreen() {
     var showPicker by remember { mutableStateOf(false) }
 
     // State to store the selected files
-    var selectedFiles by remember { mutableStateOf(persistentListOf<PickerFile>()) }
+    var selectedFiles by remember { mutableStateOf(persistentListOf<PickerResult>()) }
     var selectedTypes by remember { mutableStateOf(persistentListOf<PickerType>()) }
 
     // Define your PickerConfig as needed
     val pickerConfig = PickerConfig(
-        maxSelection = 5,
+        maxSelection = 3,
         // Add other configurations as needed
     )
 
@@ -110,7 +110,7 @@ fun PickerDialogSampleScreen() {
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         items(selectedFiles.size) { index ->
-                            Text(text = "${index + 1} → " + selectedFiles[index].path)
+                            Text(text = "${index + 1} → " + selectedFiles[index].uri.path)
                         }
                     }
                 }
