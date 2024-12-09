@@ -245,9 +245,11 @@ val pickerConfig = PickerConfig(
 
 ## 📱 Screenshots
 
-| Image Picker Dialog                            | Audio Picker Screen                            |
-|------------------------------------------------|------------------------------------------------|
-| ![Image Picker](https://via.placeholder.com/200)| ![Audio Picker](https://via.placeholder.com/200)|
+| Image Picker Dialog                                                                                                                       | Audio Picker Screen                                                                                                                       |
+|-------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110701_Media%20picker.jpg/200)    | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110709_ComposeFilePicker.jpg/200) |
+| ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110730_ComposeFilePicker.jpg/200) | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110743_ComposeFilePicker.jpg/200) |
+| ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110751_Media%20picker.jpg/200)    | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/images_below11.png/200)                               |
 
 ---
 
