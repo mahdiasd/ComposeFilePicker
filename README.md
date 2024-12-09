@@ -11,10 +11,10 @@ Welcome to the **Jetpack Compose File Picker Library**! This library provides a 
 
 ## 📱 Screenshots
 
-|----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110701_Media%20picker.jpg)   | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110709_ComposeFilePicker.jpg) || ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110730_ComposeFilePicker.jpg) |
-|  | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110743_ComposeFilePicker.jpg) |  ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110751_Media%20picker.jpg) || ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/images_below11.png)
-
+|                                                                                                                       |                                                                                                                       |                                                                                                                       |
+|-----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110701_Media%20picker.jpg) | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110709_ComposeFilePicker.jpg) | ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110730_ComposeFilePicker.jpg) |
+| ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110743_ComposeFilePicker.jpg) | ![Image Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/Screenshot_20241209_110751_Media%20picker.jpg) | ![Audio Picker](https://github.com/mahdiasd/ComposeFilePicker/blob/main/screenshots/images_below11.png) |
 
 ---
 
