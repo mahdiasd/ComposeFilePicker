@@ -323,10 +323,16 @@ Thank you for choosing the Jetpack Compose File Picker Library! We hope it simpl
 
 ---
 
-## 📬 Contact
+## 📬 Contact & Support
 
-For questions, issues, or contributions, please open an issue on [GitHub](https://github.com/YourRepo/YourLibrary) or contact the maintainer at [your.email@example.com](mailto:your.email@example.com).
+If you have any questions, issues, or suggestions, please feel free to:
 
+- **Open an Issue**: Report bugs or request features on [GitHub Issues](https://github.com/mahdiasd/ComposeFilePicker/issues).
+
+Stay connected and follow me on:
+
+- **GitHub**: [github.com/mahdiasd](https://github.com/mahdiasd)
+- **LinkedIn**: [Mahdi Asadollahpour](https://www.linkedin.com/in/mahdiasd96)
 ---
 
 ## 📄 License
