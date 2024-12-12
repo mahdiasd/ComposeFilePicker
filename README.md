@@ -306,16 +306,7 @@ The library handles necessary permissions automatically based on the Android ver
   - Utilizes the **Photo Picker API**.
   - No need for storage permissions; operates within the scoped storage model.
 
----
 
-## 📝 Notes
-
-- **SEO-Friendly**: The library is designed with best practices to ensure discoverability.
-- **Easy Integration**: Works out-of-the-box with minimal setup.
-- **Full Control**: Offers advanced customization for professional needs.
-- **Compatibility**: Tested and compatible with Android 5.0 (Lollipop) through Android 14.
-
----
 
 ## 🙏 Acknowledgements
 
